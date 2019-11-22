@@ -18,7 +18,7 @@ public class TopDBHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_CLOTHLIST_TABLE = "CREATE TABLE " +
                 CodyEntry.TABLE_NAME + " (" +
                 CodyEntry._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                CodyEntry.COLUMN_TOP_NAME + "TEXT NOT NULL" + ");";
+                CodyEntry.COLUMN_TOP_URI + " TEXT NOT NULL " + "); ";
 
         sqLiteDatabase.execSQL(SQL_CREATE_CLOTHLIST_TABLE);
 

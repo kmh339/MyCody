@@ -6,6 +6,6 @@ public class TopDB {
 
     public static final class CodyEntry implements BaseColumns{
         public static final String TABLE_NAME = "clothList";
-        public static final String COLUMN_TOP_NAME = "topName";
+        public static final String COLUMN_TOP_URI = "topUri";
     }
 }
