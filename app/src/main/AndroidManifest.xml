@@ -30,6 +30,9 @@
         <activity android:name=".MainActivity">
 
         </activity>
+
+        <activity android:name=".TopCody"></activity>
+        <activity android:name=".BottomCody"></activity>
     </application>
 
 </manifest>

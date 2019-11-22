@@ -3,4 +3,22 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/top_btn"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/top" />
+
+    <ImageButton
+        android:id="@+id/bottom_btn"
+        style="@android:style/Widget.ImageButton"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom" />
+
 </LinearLayout>
