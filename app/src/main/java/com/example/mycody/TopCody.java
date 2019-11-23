@@ -45,7 +45,7 @@ public class TopCody extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dispatchTakePictureIntent();
-                galleryAddPic();
+
             }
         });
 
@@ -93,6 +93,7 @@ public class TopCody extends AppCompatActivity {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                galleryAddPic();
             }
         }
     }

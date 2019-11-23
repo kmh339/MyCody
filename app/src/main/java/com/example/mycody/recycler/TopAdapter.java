@@ -1,5 +1,6 @@
 package com.example.mycody.recycler;
 
+import android.net.Uri;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -44,11 +45,11 @@ public class TopAdapter extends RecyclerView.Adapter<TopAdapter.TopViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull TopViewHolder viewholder, int position) {
-        viewholder.top_image.setImageResource(R.color.colorAccent);
-        viewholder.top_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 25);
+        Uri uri = Uri.parse(mList.get(position).getTopImagePath());
+        viewholder.top_image.setImageURI(uri);
 
+        viewholder.top_name.setTextSize(TypedValue.COMPLEX_UNIT_SP, 10);
         viewholder.top_name.setGravity(Gravity.CENTER);
-
         viewholder.top_name.setText(mList.get(position).getTopName());
     }
 
