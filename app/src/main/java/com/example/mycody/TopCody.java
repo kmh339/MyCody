@@ -1,14 +1,11 @@
 package com.example.mycody;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -46,9 +43,8 @@ public class TopCody extends AppCompatActivity {
         gallery_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              
                 Uri targetUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                String targetDir = "Android/data/" + "/com.example.mycody/files/Pictures";   // 특정 경로!!
+                String targetDir = "Android/data/com.example.mycody/files/Pictures";   // 특정 경로!!
                 targetUri = targetUri.buildUpon().appendQueryParameter("bucketId", String.valueOf(targetDir.toLowerCase().hashCode())).build();
                 Intent intent = new Intent(Intent.ACTION_VIEW, targetUri);
                 startActivity(intent);
