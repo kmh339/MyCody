@@ -11,10 +11,17 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.mycody.recycler.TopAdapter;
+import com.example.mycody.recycler.Dictionary;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class TopCody extends AppCompatActivity {
@@ -24,6 +31,9 @@ public class TopCody extends AppCompatActivity {
 
     Button camera_btn;
     Button gallery_btn;
+
+    private ArrayList<Dictionary> mArrayList;
+    private TopAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +60,19 @@ public class TopCody extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        RecyclerView mRecyclerView = findViewById(R.id.top_list_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mArrayList = new ArrayList<>();
+
+        mAdapter = new TopAdapter(mArrayList);
+        mRecyclerView.setAdapter(mAdapter);
+
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                layoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
     }
 
 
@@ -87,6 +110,7 @@ public class TopCody extends AppCompatActivity {
 
         // Save a file: path for use with ACTION_VIEW intents
         currentPhotoPath = image.getAbsolutePath();
+
         return image;
     }
 
@@ -96,6 +120,9 @@ public class TopCody extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
+        Dictionary data = new Dictionary(currentPhotoPath, currentPhotoPath);
+        mArrayList.add(data);
+        mAdapter.notifyDataSetChanged();
     }
 
 
