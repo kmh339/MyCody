@@ -30,7 +30,6 @@ public class TopCody extends AppCompatActivity {
     String currentPhotoPath;
 
     Button camera_btn;
-    Button gallery_btn;
 
     private ArrayList<Dictionary> mArrayList;
     private TopAdapter mAdapter;
@@ -40,30 +39,25 @@ public class TopCody extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_topcody);
 
+        RecyclerView mRecyclerView = findViewById(R.id.top_list_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+
+
         camera_btn = (Button)findViewById(R.id.camera_btn);
         camera_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dispatchTakePictureIntent();
-
+                Dictionary data = new Dictionary(currentPhotoPath, currentPhotoPath);
+                mArrayList.add(data);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
-        gallery_btn = (Button)findViewById(R.id.gallery_btn);
-        gallery_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Uri targetUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-                String targetDir = "Android/data/com.example.mycody/files/Pictures";   // 특정 경로!!
-                targetUri = targetUri.buildUpon().appendQueryParameter("bucketId", String.valueOf(targetDir.toLowerCase().hashCode())).build();
-                Intent intent = new Intent(Intent.ACTION_VIEW, targetUri);
-                startActivity(intent);
-            }
-        });
 
-        RecyclerView mRecyclerView = findViewById(R.id.top_list_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        mRecyclerView.setLayoutManager(layoutManager);
+
 
         mArrayList = new ArrayList<>();
 
@@ -121,9 +115,7 @@ public class TopCody extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
-        Dictionary data = new Dictionary(currentPhotoPath, currentPhotoPath);
-        mArrayList.add(data);
-        mAdapter.notifyDataSetChanged();
+
     }
 
 
