@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "887021151192",
+    "firebase_url": "https://mycodyfb.firebaseio.com",
+    "project_id": "mycodyfb",
+    "storage_bucket": "mycodyfb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887021151192:android:24eac580973d50045288ad",
+        "android_client_info": {
+          "package_name": "com.example.mycody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887021151192-0eu0c5ih6d1hbpuj4ia5omhce5fqbtqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtrcH30oqXy00-lkvdBeWGPW5drnq8TRw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887021151192-0eu0c5ih6d1hbpuj4ia5omhce5fqbtqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
