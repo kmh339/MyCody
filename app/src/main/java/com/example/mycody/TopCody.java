@@ -45,7 +45,7 @@ public class TopCody extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 dispatchTakePictureIntent();
-
+               // mAdapter.notifyDataSetChanged();
             }
         });
 
@@ -94,6 +94,9 @@ public class TopCody extends AppCompatActivity {
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
                 galleryAddPic();
+                Dictionary data = new Dictionary(currentPhotoPath, currentPhotoPath);
+                mArrayList.add(data);
+
             }
         }
     }
@@ -121,9 +124,7 @@ public class TopCody extends AppCompatActivity {
         Uri contentUri = Uri.fromFile(f);
         mediaScanIntent.setData(contentUri);
         this.sendBroadcast(mediaScanIntent);
-        Dictionary data = new Dictionary(currentPhotoPath, currentPhotoPath);
-        mArrayList.add(data);
-        mAdapter.notifyDataSetChanged();
+
     }
 
 
